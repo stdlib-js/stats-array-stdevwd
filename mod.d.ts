@@ -1,4 +1,4 @@
-/**
+/*
 * @license Apache-2.0
 *
 * Copyright (c) 2025 The Stdlib Authors.
@@ -16,27 +16,33 @@
 * limitations under the License.
 */
 
-'use strict';
+// TypeScript Version: 4.1
+
+/// <reference types="https://cdn.jsdelivr.net/gh/stdlib-js/types@main/index.d.ts"/>
+
+import { NumericArray, Collection, AccessorArrayLike } from '@stdlib/types/array';
 
 /**
-* Compute the standard deviation of an array using Welford's algorithm.
+* Input array.
+*/
+type InputArray = NumericArray | Collection<number> | AccessorArrayLike<number>;
+
+/**
+* Computes the standard deviation of an array using Welford's algorithm.
 *
-* @module @stdlib/stats-array-stdevwd
+* @param x - input array
+* @param correction - degrees of freedom adjustment (default: 1.0)
+* @returns standard deviation
 *
 * @example
-* var stdevwd = require( '@stdlib/stats-array-stdevwd' );
-*
 * var x = [ 1.0, -2.0, 2.0 ];
 *
 * var v = stdevwd( x, 1.0 );
 * // returns ~2.0817
 */
-
-// MODULES //
-
-var main = require( './main.js' );
+declare function stdevwd( x: InputArray, correction?: number ): number;
 
 
 // EXPORTS //
 
-module.exports = main;
+export = stdevwd;
